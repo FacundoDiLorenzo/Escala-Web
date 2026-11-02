@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Escala Web</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: one column of wide bands, big flyer-style headline, accent block for contact */
+:root{
+  --bg:#F5F4F0; --surface:#ECEAE4; --fg:#111111; --muted:#4A4A4A; --line:#D3D0C8;
+  --accent:#1A3DCC; --accent-ink:#FFFFFF; --accent-hover:#122C99;
+  --display:'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  --body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111215; --surface:#1A1C21; --fg:#F2F1EC; --muted:#B4B3AE; --line:#2C2E35;
+  --accent:#7D95FF; --accent-ink:#0B0D14; --accent-hover:#A3B4FF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111215; --surface:#1A1C21; --fg:#F2F1EC; --muted:#B4B3AE; --line:#2C2E35;
+  --accent:#7D95FF; --accent-ink:#0B0D14; --accent-hover:#A3B4FF; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+a{color:var(--accent)} a:hover{color:var(--accent-hover)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px;flex-wrap:wrap}
+.name{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-0.01em;color:var(--fg);text-decoration:none}
+nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+nav .links{display:flex;gap:20px}
+nav .links a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500}
+nav .links a:hover{color:var(--fg)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.lang button{font:600 12px/1 var(--body);letter-spacing:0.08em;background:none;border:0;color:var(--muted);padding:8px 11px;border-radius:999px;cursor:pointer;min-height:32px}
+.lang button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+@media (max-width:640px){nav .links{display:none}}
+
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin:0}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+
+/* hero */
+.hero{padding-block:clamp(32px,5vw,64px) clamp(48px,6vw,72px);display:flex;flex-direction:column;gap:24px}
+.hero h1{font-size:clamp(42px,7vw,88px);line-height:0.98;letter-spacing:-0.035em;font-weight:700;max-width:13ch}
+.hero h1 span{color:var(--accent)}
+.rule{width:96px;height:5px;background:var(--accent)}
+.hero p{font-size:clamp(19px,2.2vw,24px);color:var(--muted);max-width:34ch;margin:0;line-height:1.45}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:14px;font:600 16px/1 var(--body);text-decoration:none;border:1.5px solid var(--accent);cursor:pointer}
+.btn.solid{background:var(--accent);color:var(--accent-ink)}
+.btn.solid:hover{background:var(--accent-hover);border-color:var(--accent-hover);color:var(--accent-ink)}
+.btn.ghost{background:none;color:var(--accent)}
+.btn.ghost:hover{color:var(--accent-hover);border-color:var(--accent-hover)}
+
+section{border-top:1px solid var(--line)}
+.section{padding-block:clamp(64px,9vw,112px);display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+@media (min-width:880px){.section{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px}}
+.section h2{font-size:clamp(34px,4.6vw,52px);line-height:1.05;letter-spacing:-0.03em;margin-top:14px}
+
+/* about */
+.about-body{display:flex;flex-direction:column;gap:20px;min-width:0}
+.about-body p{margin:0;max-width:62ch;font-size:clamp(17px,1.6vw,19px)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin-top:16px;border-top:2px solid var(--fg)}
+.fact{padding:18px 20px 18px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.fact dt{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.fact dd{margin:0;font-family:var(--display);font-weight:600;font-size:19px}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;min-width:0}
+.service{background:var(--surface);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.service h3{font-size:22px;letter-spacing:-0.015em}
+.service p{margin:0;color:var(--muted);font-size:16px}
+.note{grid-column:1/-1;margin:8px 0 0;color:var(--muted);font-size:16px}
+
+/* project slide */
+.project-slide{background:var(--accent);color:var(--accent-ink);border-top:0}
+.slide{min-height:min(88vh,860px);padding-block:clamp(64px,9vw,112px);display:flex;flex-direction:column;justify-content:center;gap:28px}
+.project-slide .eyebrow{color:var(--accent-ink);opacity:0.85}
+.project-slide h2{color:var(--accent-ink);font-size:clamp(40px,6.4vw,80px);line-height:1;letter-spacing:-0.035em;margin:0}
+.slide-intro{margin:0;font-size:clamp(19px,2vw,23px);max-width:44ch;opacity:0.95}
+.asks{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0;border-top:2px solid var(--accent-ink)}
+.asks li{display:flex;flex-direction:column;gap:8px;padding:24px 24px 24px 0;border-bottom:1px solid color-mix(in srgb,var(--accent-ink) 30%,transparent);min-width:0}
+.asks strong{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.4vw,28px);letter-spacing:-0.015em}
+.asks span{opacity:0.92;line-height:1.5}
+.slide-outro{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(19px,2vw,23px)}
+.btn.light{align-self:flex-start;background:var(--accent-ink);color:var(--accent);border-color:var(--accent-ink)}
+.btn.light:hover{opacity:0.9;color:var(--accent)}
+
+/* contact details inside about */
+.contact-list{display:flex;flex-direction:column;gap:6px;min-width:0;margin-top:20px}
+.contact-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--line)}
+.contact-row .lbl{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
+.contact-row .val{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.6vw,28px);user-select:all;overflow-wrap:anywhere}
+.copy{font:600 14px/1 var(--body);background:none;color:var(--accent);border:1.5px solid var(--accent);border-radius:12px;min-height:44px;padding:0 18px;cursor:pointer}
+.copy:hover{background:var(--accent);color:var(--accent-ink)}
+.wa{align-self:flex-start;margin-top:16px}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:20px;min-width:0}
+.proj{background:var(--surface);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.proj-vis{aspect-ratio:16/9;max-width:100%;display:flex;flex-direction:column;justify-content:space-between;padding:22px}
+.proj-vis.clean{background:#ECE3D2;color:#33302B}
+.proj-vis.clean em{color:#5F6F57}
+.pv-name{font-family:Georgia,'Times New Roman',serif;font-size:clamp(26px,3vw,34px);font-weight:600;line-height:1.05}
+.pv-name em{font-style:italic}
+.pv-tags{display:flex;gap:6px;flex-wrap:wrap}
+.pv-tags i{font-style:normal;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;background:rgba(255,255,255,0.7);color:#33302B;padding:4px 10px;border-radius:999px}
+.proj-body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.proj-kind{margin:0;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)}
+.proj-body h3{font-size:24px;letter-spacing:-0.015em}
+.proj-body p{margin:0;color:var(--muted);font-size:16px}
+.proj-link{margin-top:auto;padding-top:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;min-height:44px}
+.proj-link::after{content:"→"}
+
+/* flip card */
+.flip{display:block;margin-top:32px;width:min(100%,320px);aspect-ratio:4/5;max-width:100%;padding:0;border:0;background:none;cursor:pointer;perspective:1200px;font:inherit;color:inherit;text-align:left}
+.flip-inner{position:relative;display:block;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.flip[aria-pressed="true"] .flip-inner{transform:rotateY(180deg)}
+@media (hover:hover){.flip:hover .flip-inner{transform:rotateY(180deg)}}
+.flip-face{position:absolute;inset:0;border-radius:24px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column}
+.flip-front{background:var(--surface);align-items:center;justify-content:center}
+.flip-front img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-ph{font-family:var(--display);font-weight:700;font-size:88px;letter-spacing:-0.04em;color:var(--accent)}
+.flip-hint{position:absolute;left:14px;right:14px;bottom:14px;text-align:center;font-size:13px;font-weight:600;padding:9px 12px;border-radius:999px;background:var(--accent);color:var(--accent-ink)}
+.flip-back{transform:rotateY(180deg);background:var(--accent);color:var(--accent-ink);padding:24px 22px;justify-content:safe center;gap:10px;overflow-y:auto}
+.flip-name{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.1;letter-spacing:-0.02em}
+.flip-text{font-size:15px;line-height:1.4}
+.flip-ask{font-family:var(--display);font-weight:600;font-size:15px;line-height:1.35;padding-top:10px;border-top:1px solid color-mix(in srgb,var(--accent-ink) 35%,transparent)}
+@media (prefers-reduced-motion:reduce){.flip-inner{transition:none}}
+
+footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+</style>
+
+<header>
+  <div class="wrap bar">
+    <a class="name" href="#inicio">Escala Web</a>
+    <nav aria-label="Principal">
+      <div class="links">
+        <a href="#servicios" data-i18n="navServices">Servicios</a>
+        <a href="#proyectos" data-i18n="navProj">Proyectos</a>
+        <a href="#contacto" data-i18n="navContact">Tu proyecto</a>
+        <a href="#sobre-mi" data-i18n="navAbout">Sobre mí</a>
+      </div>
+      <div class="lang" role="group" aria-label="Idioma">
+        <button type="button" id="lang-es" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" id="lang-it" data-lang="it" aria-pressed="false">IT</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero" id="inicio">
+    <p class="eyebrow" data-i18n="heroEyebrow">Diseño web</p>
+    <h1><span data-i18n="heroA">Tu web profesional,</span><br><span data-i18n="heroB">sin complicaciones.</span></h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p data-i18n="heroSub">Páginas web profesionales creadas con inteligencia artificial.</p>
+    <div class="actions">
+      <a class="btn solid" href="#contacto" data-i18n="ctaTalk">Hablemos de tu proyecto</a>
+      <a class="btn ghost" href="#servicios" data-i18n="ctaServices">Ver servicios</a>
+    </div>
+  </div>
+
+  <section id="servicios">
+    <div class="wrap section">
+      <div>
+        <p class="eyebrow" data-i18n="servEyebrow">Servicios</p>
+        <h2 data-i18n="servTitle">Lo que puedo hacer por tu empresa</h2>
+      </div>
+      <div class="services">
+        <article class="service"><h3 data-i18n="s1t">Web corporativa</h3><p data-i18n="s1d">Una web completa para presentar tu empresa, tus servicios y tu forma de contacto.</p></article>
+        <article class="service"><h3 data-i18n="s2t">Landing page</h3><p data-i18n="s2d">Una sola página enfocada en un producto, una campaña o captar clientes.</p></article>
+        <article class="service"><h3 data-i18n="s3t">Web multilingüe</h3><p data-i18n="s3d">Tu web en español, inglés o italiano, pensada para clientes de distintos países.</p></article>
+        <article class="service"><h3 data-i18n="s4t">Renovación de tu web</h3><p data-i18n="s4d">Actualizo tu web actual para que se vea moderna y funcione bien en el móvil.</p></article>
+        <p class="note" data-i18n="servNote">Cada proyecto es distinto: escríbeme y te preparo un presupuesto sin compromiso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="wrap section">
+      <div>
+        <p class="eyebrow" data-i18n="projEyebrow">Proyectos</p>
+        <h2 data-i18n="projTitle">Mis últimos proyectos</h2>
+      </div>
+      <div class="projects">
+        <article class="proj">
+          <div class="proj-vis clean" aria-hidden="true"><span class="pv-name"><em>DLclean</em></span><span class="pv-tags"><i>Airbnb</i><i>Málaga</i></span></div>
+          <div class="proj-body">
+            <p class="proj-kind" data-i18n="p2k">Web de servicios · Limpieza</p>
+            <h3>DLclean</h3>
+            <p data-i18n="p2d">Web para una empresa de limpieza de apartamentos turísticos y Airbnb en Málaga. Presenta los servicios y el método de trabajo, con botones para llamar o escribir por WhatsApp y pedir presupuesto.</p>
+            <a class="proj-link" href="https://claude.ai/artifact/Vc1E23yDyz9UWyHTPFoiGH" target="_blank" rel="noopener" data-i18n="seeProj">Ver proyecto</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="project-slide">
+    <div class="wrap slide">
+      <p class="eyebrow" data-i18n="contEyebrow">Tu proyecto</p>
+      <h2 data-i18n="contTitle">Hablemos de tu proyecto</h2>
+      <p class="slide-intro" data-i18n="briefIntro">Para que tu web sea realmente buena, cuando me escribas cuéntame:</p>
+      <ul class="asks">
+        <li><strong data-i18n="b1t">Qué quieres</strong><span data-i18n="b1d">el tipo de web y para qué la necesitas.</span></li>
+        <li><strong data-i18n="b2t">Cómo la imaginas</strong><span data-i18n="b2d">estilo, colores, webs que te gusten como referencia.</span></li>
+        <li><strong data-i18n="b3t">Todo sobre ti</strong><span data-i18n="b3d">los detalles personales y profesionales de tu empresa: historia, servicios, clientes y lo que te diferencia.</span></li>
+      </ul>
+      <p class="slide-outro" data-i18n="briefOutro">Cuanta más información me des, mejor quedará tu web.</p>
+      <a class="btn light" href="#sobre-mi" data-i18n="toContact">Ver mis datos de contacto</a>
+    </div>
+  </section>
+
+  <section id="sobre-mi">
+    <div class="wrap section">
+      <div>
+        <p class="eyebrow" data-i18n="aboutEyebrow">Sobre mí y contacto</p>
+        <h2 data-i18n="aboutTitle">Comercio internacional e inteligencia artificial</h2>
+        <button type="button" class="flip" id="flip-card" aria-pressed="false" aria-label="Girar la tarjeta para ver más sobre Facundo">
+          <span class="flip-inner">
+            <span class="flip-face flip-front">
+              <img src="data:image/webp;base64,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" alt="Facundo Di Lorenzo" width="560" height="700">
+              <span class="flip-hint" data-i18n="flipHint">Pasa el cursor o toca para girar</span>
+            </span>
+            <span class="flip-face flip-back">
+              <span class="flip-name">Facundo Di Lorenzo</span>
+              <span class="flip-text" data-i18n="flipText">Soy Facundo Di Lorenzo y tengo 19 años. Soy graduado en Bachillerato de Letras y actualmente estudio Comercio Internacional y curso un máster de Inteligencia Artificial y sus skills.</span>
+              <span class="flip-ask" data-i18n="flipAsk">Si necesitas algo más, pregúntame.</span>
+            </span>
+          </span>
+        </button>
+      </div>
+      <div class="about-body">
+        <dl class="facts">
+          <div class="fact"><dt data-i18n="fBase">Base</dt><dd>Málaga, España</dd></div>
+          <div class="fact"><dt data-i18n="fLang">Idiomas</dt><dd data-i18n="fLangV">Español, inglés, italiano</dd></div>
+          <div class="fact"><dt data-i18n="fStudy">Formación</dt><dd data-i18n="fStudyV">Comercio Internacional · Máster en IA</dd></div>
+        </dl>
+        <div class="contact-list">
+          <div class="contact-row">
+            <div><span class="lbl" data-i18n="cPhone">Teléfono y WhatsApp</span><span class="val" id="phone">+34 663 625 836</span></div>
+            <button class="copy" type="button" id="copy-phone" data-copy="+34663625836" data-i18n="copy">Copiar</button>
+          </div>
+          <div class="contact-row">
+            <div><span class="lbl" data-i18n="cMail">Email</span><span class="val" id="mail">dilorenzo.facundo19@gmail.com</span></div>
+            <button class="copy" type="button" id="copy-mail" data-copy="dilorenzo.facundo19@gmail.com" data-i18n="copy">Copiar</button>
+          </div>
+          <a class="btn solid wa" href="https://wa.me/34663625836" target="_blank" rel="noopener" data-i18n="waBtn">Escríbeme por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Escala Web · Facundo Di Lorenzo</span><span data-i18n="footer">Diseño web · Málaga</span></div>
+</footer>
+
+<script>
+const T = {
+  es:{navAbout:"Sobre mí",navServices:"Servicios",flipHint:"Pasa el cursor o toca para girar",flipText:"Soy Facundo Di Lorenzo y tengo 19 años. Soy graduado en Bachillerato de Letras y actualmente estudio Comercio Internacional y curso un máster de Inteligencia Artificial y sus skills.",flipAsk:"Si necesitas algo más, pregúntame.",navProj:"Proyectos",projEyebrow:"Proyectos",projTitle:"Mis últimos proyectos",p2k:"Web de servicios · Limpieza",p2d:"Web para una empresa de limpieza de apartamentos turísticos y Airbnb en Málaga. Presenta los servicios y el método de trabajo, con botones para llamar o escribir por WhatsApp y pedir presupuesto.",seeProj:"Ver proyecto",navContact:"Tu proyecto",heroEyebrow:"Diseño web",heroA:"Tu web profesional,",heroB:"sin complicaciones.",heroSub:"Páginas web profesionales creadas con inteligencia artificial.",ctaTalk:"Hablemos de tu proyecto",ctaServices:"Ver servicios",aboutEyebrow:"Sobre mí y contacto",aboutTitle:"Comercio internacional e inteligencia artificial",fBase:"Base",fLang:"Idiomas",fLangV:"Español, inglés, italiano",fStudy:"Formación",fStudyV:"Comercio Internacional · Máster en IA",servEyebrow:"Servicios",servTitle:"Lo que puedo hacer por tu empresa",s1t:"Web corporativa",s1d:"Una web completa para presentar tu empresa, tus servicios y tu forma de contacto.",s2t:"Landing page",s2d:"Una sola página enfocada en un producto, una campaña o captar clientes.",s3t:"Web multilingüe",s3d:"Tu web en español, inglés o italiano, pensada para clientes de distintos países.",s4t:"Renovación de tu web",s4d:"Actualizo tu web actual para que se vea moderna y funcione bien en el móvil.",servNote:"Cada proyecto es distinto: escríbeme y te preparo un presupuesto sin compromiso.",contEyebrow:"Tu proyecto",toContact:"Ver mis datos de contacto",contTitle:"Hablemos de tu proyecto",briefIntro:"Para que tu web sea realmente buena, cuando me escribas cuéntame:",b1t:"Qué quieres",b1d:"el tipo de web y para qué la necesitas.",b2t:"Cómo la imaginas",b2d:"estilo, colores, webs que te gusten como referencia.",b3t:"Todo sobre ti",b3d:"los detalles personales y profesionales de tu empresa: historia, servicios, clientes y lo que te diferencia.",briefOutro:"Cuanta más información me des, mejor quedará tu web.",cPhone:"Teléfono y WhatsApp",cMail:"Email",copy:"Copiar",copied:"Copiado",waBtn:"Escríbeme por WhatsApp",footer:"Diseño web · Málaga"},
+  en:{navAbout:"About",navServices:"Services",flipHint:"Hover or tap to flip",flipText:"I'm Facundo Di Lorenzo and I'm 19. I finished my Baccalaureate in Humanities, and I'm now studying International Trade and doing a master's in Artificial Intelligence and its skills.",flipAsk:"If you need anything else, just ask me.",navProj:"Projects",projEyebrow:"Projects",projTitle:"My latest projects",p2k:"Service website · Cleaning",p2d:"Website for a holiday-apartment and Airbnb cleaning company in Málaga. It presents the services and the way of working, with buttons to call, message on WhatsApp and ask for a quote.",seeProj:"See project",navContact:"Your project",heroEyebrow:"Web design",heroA:"Your professional website,",heroB:"without the hassle.",heroSub:"Professional websites built with artificial intelligence.",ctaTalk:"Let's talk about your project",ctaServices:"See services",aboutEyebrow:"About me & contact",aboutTitle:"International trade meets artificial intelligence",fBase:"Based in",fLang:"Languages",fLangV:"Spanish, English, Italian",fStudy:"Education",fStudyV:"International Trade · Master's in AI",servEyebrow:"Services",servTitle:"What I can do for your business",s1t:"Company website",s1d:"A complete website to present your company, your services and how to reach you.",s2t:"Landing page",s2d:"A single page focused on one product, a campaign or winning new clients.",s3t:"Multilingual website",s3d:"Your website in Spanish, English or Italian, built for clients from different countries.",s4t:"Website redesign",s4d:"I update your current website so it looks modern and works well on mobile.",servNote:"Every project is different: write to me and I'll prepare a free, no-obligation quote.",contEyebrow:"Your project",toContact:"See my contact details",contTitle:"Let's talk about your project",briefIntro:"To make your website truly great, when you contact me tell me:",b1t:"What you want",b1d:"the type of website and what you need it for.",b2t:"How you picture it",b2d:"style, colours, websites you like as a reference.",b3t:"All about you",b3d:"the personal and professional details of your business: its story, services, clients and what sets you apart.",briefOutro:"The more you tell me, the better your website will be.",cPhone:"Phone and WhatsApp",cMail:"Email",copy:"Copy",copied:"Copied",waBtn:"Message me on WhatsApp",footer:"Web design · Málaga"},
+  it:{navAbout:"Chi sono",navServices:"Servizi",flipHint:"Passa il cursore o tocca per girare",flipText:"Sono Facundo Di Lorenzo e ho 19 anni. Mi sono diplomato al liceo umanistico e ora studio Commercio Internazionale e frequento un master in Intelligenza Artificiale e le sue skills.",flipAsk:"Se ti serve altro, chiedimi pure.",navProj:"Progetti",projEyebrow:"Progetti",projTitle:"I miei ultimi progetti",p2k:"Sito di servizi · Pulizie",p2d:"Sito per un'impresa di pulizie di appartamenti turistici e Airbnb a Málaga. Presenta i servizi e il metodo di lavoro, con pulsanti per chiamare, scrivere su WhatsApp e chiedere un preventivo.",seeProj:"Vedi il progetto",navContact:"Il tuo progetto",heroEyebrow:"Web design",heroA:"Il tuo sito professionale,",heroB:"senza complicazioni.",heroSub:"Siti web professionali creati con l'intelligenza artificiale.",ctaTalk:"Parliamo del tuo progetto",ctaServices:"Vedi i servizi",aboutEyebrow:"Chi sono e contatti",aboutTitle:"Commercio internazionale e intelligenza artificiale",fBase:"Sede",fLang:"Lingue",fLangV:"Spagnolo, inglese, italiano",fStudy:"Formazione",fStudyV:"Commercio Internazionale · Master in IA",servEyebrow:"Servizi",servTitle:"Cosa posso fare per la tua azienda",s1t:"Sito aziendale",s1d:"Un sito completo per presentare la tua azienda, i tuoi servizi e come contattarti.",s2t:"Landing page",s2d:"Una sola pagina dedicata a un prodotto, una campagna o all'acquisizione di clienti.",s3t:"Sito multilingue",s3d:"Il tuo sito in spagnolo, inglese o italiano, pensato per clienti di paesi diversi.",s4t:"Rinnovo del sito",s4d:"Aggiorno il tuo sito attuale perché sia moderno e funzioni bene su mobile.",servNote:"Ogni progetto è diverso: scrivimi e ti preparo un preventivo senza impegno.",contEyebrow:"Il tuo progetto",toContact:"Vedi i miei contatti",contTitle:"Parliamo del tuo progetto",briefIntro:"Perché il tuo sito sia davvero ottimo, quando mi contatti raccontami:",b1t:"Cosa vuoi",b1d:"il tipo di sito e a cosa ti serve.",b2t:"Come lo immagini",b2d:"stile, colori, siti che ti piacciono come riferimento.",b3t:"Tutto su di te",b3d:"i dettagli personali e professionali della tua azienda: storia, servizi, clienti e cosa ti distingue.",briefOutro:"Più informazioni mi dai, migliore sarà il tuo sito.",cPhone:"Telefono e WhatsApp",cMail:"Email",copy:"Copia",copied:"Copiato",waBtn:"Scrivimi su WhatsApp",footer:"Web design · Málaga"}
+};
+let current = 'es';
+function setLang(l){
+  if(!T[l]) l='es';
+  current = l;
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n; if(T[l][k]) el.textContent=T[l][k];});
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.lang===l)));
+  try{localStorage.setItem('lang',l);}catch(e){}
+}
+(function(){const f=document.getElementById('flip-card');if(f)f.addEventListener('click',()=>f.setAttribute('aria-pressed',String(f.getAttribute('aria-pressed')!=='true')));})();
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const done=()=>{b.textContent=T[current].copied; setTimeout(()=>{b.textContent=T[current].copy;},1600);};
+  const fallback=()=>{const v=b.parentElement.querySelector('.val'); const r=document.createRange(); r.selectNodeContents(v); const s=getSelection(); s.removeAllRanges(); s.addRange(r);};
+  try{navigator.clipboard.writeText(b.dataset.copy).then(done,fallback);}catch(e){fallback();}
+}));
+let saved=null; try{saved=localStorage.getItem('lang');}catch(e){}
+setLang(saved||'es');
+</script>
+
+</html>
