@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contacto · Escala Web</title>
+<meta name="description" content="Cuéntame tu proyecto: teléfono y WhatsApp +34 663 625 836, email dilorenzo.facundo19@gmail.com.">
+<meta name="theme-color" content="#F3F0E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1012" media="(prefers-color-scheme: dark)">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body data-title="tContact">
+<a class="skip" href="#contenido" data-i18n="skip">Saltar al contenido</a>
+<header class="site">
+  <div class="wrap bar">
+    <a class="name" href="index.html"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>Escala Web</a>
+    <nav class="main" aria-label="Principal">
+      <div class="links"><a href="servicios.html" data-i18n="navServices">Servicios</a><a href="sobre-mi.html" data-i18n="navAbout">Sobre mí</a><a href="preguntas-frecuentes.html" data-i18n="navFaq">Preguntas</a><a href="contacto.html" data-i18n="navContact" aria-current="page">Contacto</a></div>
+      <div class="lang" role="group" aria-label="Idioma / Language / Lingua">
+        <span class="lang-ind" aria-hidden="true"></span>
+        <button type="button" id="lang-es" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" id="lang-it" data-lang="it" aria-pressed="false">IT</button>
+      </div>
+      <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-panel"><span class="burger" aria-hidden="true"><i></i><i></i></span><span data-i18n="menu">Menú</span></button>
+    </nav>
+  </div>
+  <div class="menu-panel" id="menu-panel"><ul class="wrap"><li><a href="servicios.html" style="--i:0"><span data-i18n="navServices">Servicios</span><svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="sobre-mi.html" style="--i:1"><span data-i18n="navAbout">Sobre mí</span><svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="preguntas-frecuentes.html" style="--i:2"><span data-i18n="navFaq">Preguntas</span><svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="contacto.html" style="--i:3" aria-current="page"><span data-i18n="navContact">Contacto</span><svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li></ul></div>
+</header>
+<main id="contenido">
+
+  <section class="project-slide contact-hero">
+    <div class="wrap slide">
+      <a class="crumb fade" href="index.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span data-i18n="home">Inicio</span></a>
+      <h1><span class="ln" style="display:block"><span class="ln-in" data-i18n="contTitle">Hablemos de tu proyecto</span></span></h1>
+      <p class="slide-intro fade d1" data-i18n="briefIntro">Para que tu web sea realmente buena, cuando me escribas cuéntame:</p>
+      <ul class="asks">
+        <li class="fade d1"><strong data-i18n="b1t">Qué quieres</strong><span data-i18n="b1d">el tipo de web y para qué la necesitas.</span></li>
+        <li class="fade d2"><strong data-i18n="b2t">Cómo la imaginas</strong><span data-i18n="b2d">estilo, colores, webs que te gusten como referencia.</span></li>
+        <li class="fade d3"><strong data-i18n="b3t">Todo sobre ti</strong><span data-i18n="b3d">los detalles personales y profesionales de tu empresa: historia, servicios, clientes y lo que te diferencia.</span></li>
+      </ul>
+      <div class="slide-end fade d3">
+        <p class="slide-outro" data-i18n="briefOutro">Cuanta más información me des, mejor quedará tu web.</p>
+        <a class="btn light" href="#datos"><span data-i18n="toContact">Ver mis datos de contacto</span><svg class="ico ico-down" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="datos">
+    <div class="wrap section">
+      <p class="sec-label" data-i18n="dataEyebrow">Datos de contacto</p>
+      <h2 data-i18n="dataTitle" data-rv>Escríbeme o llámame</h2>
+      <div class="sec-content">
+        <div class="contact-list">
+          <div class="contact-row" data-rv>
+            <div><span class="lbl" data-i18n="cPhone">Teléfono y WhatsApp</span><span class="val" id="phone">+34 663 625 836</span></div>
+            <button class="copy" type="button" id="copy-phone" data-copy="+34663625836"><span class="copy-ico" aria-hidden="true"><svg class="ico i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"/></svg><svg class="ico i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="copy-txt" data-i18n="copy" aria-live="polite">Copiar</span></button>
+          </div>
+          <div class="contact-row" data-rv>
+            <div><span class="lbl" data-i18n="cMail">Email</span><span class="val" id="mail">dilorenzo.facundo19@gmail.com</span></div>
+            <button class="copy" type="button" id="copy-mail" data-copy="dilorenzo.facundo19@gmail.com"><span class="copy-ico" aria-hidden="true"><svg class="ico i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"/></svg><svg class="ico i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="copy-txt" data-i18n="copy" aria-live="polite">Copiar</span></button>
+          </div>
+        </div>
+        <a class="btn solid" href="https://wa.me/34663625836" target="_blank" rel="noopener" data-rv><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-4A8 8 0 1 1 8 18.8z"/></svg><span data-i18n="waBtn">Escríbeme por WhatsApp</span></a>
+        <p class="contact-place" data-rv><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="place">En Málaga y también a distancia</span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="foot-mark" aria-hidden="true" data-rv>Escala Web</p>
+    <nav class="foot-nav" aria-label="Pie"><a href="servicios.html" data-i18n="navServices">Servicios</a><a href="sobre-mi.html" data-i18n="navAbout">Sobre mí</a><a href="preguntas-frecuentes.html" data-i18n="navFaq">Preguntas</a><a href="contacto.html" data-i18n="navContact">Contacto</a></nav>
+    <div class="foot-row">
+      <span>© 2026 Escala Web · Facundo Di Lorenzo · <span data-i18n="footer">Diseño web · Málaga</span></span>
+      <span class="foot-legal"><a href="aviso-legal.html" data-i18n="legalNotice">Aviso legal</a><a href="privacidad.html" data-i18n="privacy">Política de privacidad</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/i18n.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>
